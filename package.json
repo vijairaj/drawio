@@ -1,0 +1,42 @@
+{
+  "name": "collab-dia",
+  "version": "0.1.0",
+  "description": "Collaborative drawing with drawio and Convergence",
+  "keywords": [
+    "realtime",
+    "collaboration",
+    "mxGraph",
+    "drawio",
+    "diagrams.net",
+    "convergence"
+  ],
+  "author": {
+    "name": "Vijairaj",
+    "email": "Vijairaj.Rangaswamy@kla-tencor.com",
+    "url": ""
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "lite-server"
+  },
+  "dependencies": {
+    "@convergence/color-assigner": "0.3.0",
+    "@convergence/convergence": "^1.0.0-rc.11",
+    "@convergence/mxgraph-adapter": "0.3.0",
+    "@fortawesome/fontawesome-free": "5.15.3",
+    "fs-extra": "10.0.0",
+    "jquery": "3.5.1",
+    "lite-server": "2.6.1",
+    "moment": "2.29.1",
+    "toastr": "2.1.4"
+  }
+}

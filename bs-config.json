@@ -1,0 +1,12 @@
+{
+  "port": 7000,
+  "ghostMode": false,
+  "files": ["./src/main/webapp/**/*"],
+  "server": {
+    "baseDir": "./src/main/webapp",
+    "routes": {
+      "/libs": "node_modules",
+      "/mxgraph.config.js": "mxgraph.config.js"
+    }
+  }
+}

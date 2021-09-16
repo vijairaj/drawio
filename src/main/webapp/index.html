@@ -16,6 +16,35 @@
 	<meta name="msapplication-config" content="images/browserconfig.xml">
     <meta name="mobile-web-app-capable" content="yes">
 	<meta name="theme-color" content="#d89000">
+
+
+  <!-- convergence integration start -->
+	<script type="text/javascript" src="./libs/rxjs/bundles/rxjs.umd.min.js"></script>
+	<script type="text/javascript" src="./libs/@convergence/convergence/convergence.global.js"></script>
+	<script type="text/javascript" src="./libs/@convergence/color-assigner/umd/color-assigner.js"></script>
+	<script type="text/javascript" src="./mxgraph.config.js"></script>
+	<script type="text/javascript" src="./libs/@convergence/mxgraph-adapter/dist/umd/convergence-mxgraph-adapter.js"></script>
+	<script type="text/javascript" src="./libs/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./libs/moment/moment.js"></script>
+	<script type="text/javascript" src="./libs/toastr/build/toastr.min.js"></script>
+
+	<script type="text/javascript" src="./convergence/js/UiComponent.js"></script>
+	<script type="text/javascript" src="./convergence/js/PresenceList.js"></script>
+	<script type="text/javascript" src="./convergence/js/Overview.js"></script>
+	<script type="text/javascript" src="./convergence/js/ChatControl.js"></script>
+	<script type="text/javascript" src="./convergence/js/ShareControls.js"></script>
+	<script type="text/javascript" src="./convergence/js/ConvergenceCollaborationController.js"></script>
+
+	<link rel="stylesheet" href="./convergence/styles/presence.css">
+	<link rel="stylesheet" href="./convergence/styles/pointer.css">
+	<link rel="stylesheet" href="./convergence/styles/chat.css">
+	<link rel="stylesheet" href="./convergence/styles/overview.css">
+	<link rel="stylesheet" href="./convergence/styles/share.css">
+	<link rel="stylesheet" href="./libs/@fortawesome/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="./libs/toastr/build/toastr.css">
+  <!-- convergence integration end -->
+
+
 	<script type="text/javascript">
 		/**
 		 * URL Parameters and protocol description are here:
@@ -245,9 +274,11 @@
 		if (urlParams['dev'] == '1')
 		{
 			// Used to request grapheditor/mxgraph sources in dev mode
+			//var mxDevUrl = document.location.protocol + '//devhost.jgraph.com/drawio/src/main';
 			var mxDevUrl = '';
 			
 			// Used to request draw.io sources in dev mode
+			//var drawDevUrl = document.location.protocol + '//devhost.jgraph.com/drawio/src/main/webapp/';
 			var drawDevUrl = '';
 			var geBasePath = drawDevUrl + '/js/grapheditor';
 			var mxBasePath = mxDevUrl + '/mxgraph';
@@ -470,6 +501,16 @@ else
 	else
 	{
 		App.main();
+
+    // Convergence integration start
+    const collaborationController = new ConvergenceCollaborationController(MxGraphConfig.CONVERGENCE_URL);
+    collaborationController
+      .connect()
+      .then( () => {
+        const diagramController = collaborationController.createEditorController();
+        diagramController.init();
+      });
+    // Convergence integration end
 	}
 }
 </script>
