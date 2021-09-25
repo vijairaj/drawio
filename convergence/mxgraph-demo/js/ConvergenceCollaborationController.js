@@ -85,7 +85,8 @@ class ConvergenceEditorController {
       .all([this._openModel(), this._joinActivity(), this._joinChat()])
       .then(() => {
         const mxModel = Deserializer.deserializeMxGraphModel(this._model.root().value());
-        const editor = new Editor(urlParams['chrome'] === '0', {}, mxModel);
+        //const editor = new Editor(urlParams['chrome'] === '0', {}, mxModel);
+        const editor = window._editor;
 
         const overviewContainer = document.createElement("div");
         overviewContainer.className = "collab-overview-container";
@@ -94,7 +95,8 @@ class ConvergenceEditorController {
         };
         EditorUi.prototype.sidebarFooterHeight = 200;
 
-        const ui = new EditorUi(editor);
+        //const ui = new EditorUi(editor);
+        const ui = window._editorui;
 
         ui.handleError = (e) => {
           console.error(e);

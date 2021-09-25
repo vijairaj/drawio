@@ -6,6 +6,7 @@
     "baseDir": "./src/main/webapp",
     "routes": {
       "/libs": "node_modules",
+      "/convergence": "convergence",
       "/mxgraph.config.js": "mxgraph.config.js"
     }
   }

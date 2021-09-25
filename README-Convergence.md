@@ -4,7 +4,7 @@ Host an on-prem draw.io server with collaborative editing and integration
 # Status
   1. [X] Add convergence dependencies via npm
   2. [X] Preliminary integration
-  3. [] Resolve integration issue
+  3. [ ] Resolve integration issue
 
 # running
   1. Run the convergence docker image on the default port

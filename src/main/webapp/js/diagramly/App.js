@@ -13,9 +13,10 @@
  */
 App = function(editor, container, lightbox)
 {
-	EditorUi.call(this, editor, container, (lightbox != null) ? lightbox :
+	var editorUi = EditorUi.call(this, editor, container, (lightbox != null) ? lightbox :
 		(urlParams['lightbox'] == '1' || (uiTheme == 'min' &&
 		urlParams['chrome'] != '0')));
+	window._editorui = this;
 	
 	// Logs unloading of window with modifications for Google Drive file
 	if (!mxClient.IS_CHROMEAPP && !EditorUi.isElectronApp)
@@ -922,9 +923,12 @@ App.main = function(callback, createUi)
 			// Main
 			function realMain()
 			{
-				var ui = (createUi != null) ? createUi() : new App(new Editor(
+				var editor = new Editor(
 						urlParams['chrome'] == '0' || uiTheme == 'min',
-						null, null, null, urlParams['chrome'] != '0'));
+						null, null, null, urlParams['chrome'] != '0')
+				window._editor = editor;
+
+				var ui = (createUi != null) ? createUi() : new App(editor);
 				
 				if (window.mxscript != null)
 				{
