@@ -17,6 +17,12 @@ class Overview extends UiComponent {
     this._el.append(this._overview);
 
     this._outline = new mxOutline(this._options.graph, this._overview[0]);
+	var graph = new mxGraph(this._overview[0], this._options.graph.getModel(), mxConstants.RENDERING_HINT_FASTER, this._options.graph.getStylesheet());
+	graph.foldingEnabled = false;
+	graph.autoScroll = false;
+	this._outline.outline = graph;
+	
+
 
     setTimeout(() => {
       const participants = this._options.activity.participants().sort((a, b) => a.local ? -1 : 1);
