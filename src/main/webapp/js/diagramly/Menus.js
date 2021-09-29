@@ -2584,6 +2584,7 @@
 			}
 		}))).isEnabled = isGraphEnabled;
 
+/*
 		this.put('theme', new Menu(mxUtils.bind(this, function(menu, parent)
 		{
 			var theme = (urlParams['sketch'] == '1') ? 'sketch' : mxSettings.getUi();
@@ -2663,6 +2664,7 @@
 				menu.addCheckmark(item, Editor.checkmarkImage);
 			}
 		})));
+*/
 
 		var renameAction = this.editorUi.actions.addAction('rename...', mxUtils.bind(this, function()
 		{
